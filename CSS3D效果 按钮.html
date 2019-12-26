@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            /* background-color: aqua; */
+            transform-style: preserve-3d;
+            position: relative;
+            left: 250px;
+            top: 250px;
+            transform: rotateX(50deg) rotateY(50deg);
+        }
+
+        .hezi {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            font-size: 30px;
+            border: 1px red solid;
+            transition: all 1s;
+            opacity: .5;
+        }
+
+        .anniu:active~.qian {
+            transform: translateZ(100px);
+            background-color: rgb(68, 211, 211);
+        }
+
+        .anniu:active~.hou {
+            transform: rotateY(180deg) translateZ(100px);
+            background-color: rgb(199, 103, 73);
+            transition: all 1s 1s;
+        }
+
+        .anniu:active~.left {
+            transform: rotateY(-90deg) translateZ(100px);
+            background-color: rgb(72, 177, 112);
+            transition: all 1s 2s;
+        }
+
+        .anniu:active~.right {
+            transform: rotateY(90deg) translateZ(100px);
+            background-color: rgb(8, 54, 85);
+            transition: all 1s 3s;
+        }
+
+        .anniu:active~.bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+            background-color: rgb(182, 101, 207);
+            transition: all 1s 4s;
+        }
+
+        .anniu:active~.top {
+            transform: rotateX(90deg) translateZ(100px);
+            background-color: rgb(216, 104, 104);
+            transition: all 1s 5s;
+        }
+
+        .a {
+            background-color: white;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+        }
+
+        .bott {
+            width: 120px;
+            height: 60px;
+            background-color: slategrey;
+            border-radius: 30px;
+            transition: all .5s;
+        }
+
+        .top1 {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background-color: white;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transition: all .5s;
+        }
+
+        input:checked+.bott {
+            background-color: rgb(61, 196, 151);
+        }
+
+        input:checked~.top1 {
+            transform: translateX(60px);
+        }
+
+        #box1 {
+            display: none;
+        }
+        .anniu{
+            transform: rotateY(-50deg) rotateX(-50deg);
+        }
+    </style>
+</head>
+
+<body>
+    <label for="box1" class="a">
+        <input type="checkbox" id="box1">
+        <div class="bott"></div>
+        <div class="top1"></div>
+    </label>
+    <div class="box">
+        <button class="anniu">按钮</button>
+        <div class="hezi qian">前面</div>
+        <div class="hezi left">左边</div>
+        <div class="hezi bottom">下边</div>
+        <div class="hezi right">右边</div>
+        <div class="hezi top">上面</div>
+        <div class="hezi hou">后面</div>
+    </div>
+</body>
+
+</html>
